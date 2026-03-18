@@ -1,0 +1,1 @@
+@echo off&#10;cd /d %~dp0&#10;if not exist venv (&#10;    python -m venv venv&#10;)&#10;call venv\Scripts\activate.bat&#10;if [%VIRTUAL_ENV%] == [] (&#10;    echo Please run as admin or check Python&#10;    pause&#10;    exit&#10;)&#10;pip install -r requirements.txt&#10;uvicorn main:app --reload&#10;pause
